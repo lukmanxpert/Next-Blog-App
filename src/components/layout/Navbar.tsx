@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
+import Image from "next/image";
 
 interface MenuItem {
   title: string;
@@ -95,7 +96,9 @@ const Navbar = ({
           <div className="flex items-center gap-6">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
-              <img
+              <Image
+                width={100}
+                height={100}
                 src={logo.src}
                 className="max-h-8 dark:invert"
                 alt={logo.alt}
@@ -128,7 +131,9 @@ const Navbar = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
-              <img
+              <Image
+                width={100}
+                height={100}
                 src={logo.src}
                 className="max-h-8 dark:invert"
                 alt={logo.alt}
@@ -144,7 +149,9 @@ const Navbar = ({
                 <SheetHeader>
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center gap-2">
-                      <img
+                      <Image
+                        width={100}
+                        height={100}
                         src={logo.src}
                         className="max-h-8 dark:invert"
                         alt={logo.alt}
@@ -182,7 +189,7 @@ const Navbar = ({
 const renderMenuItem = (item: MenuItem) => {
   return (
     <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground">
+      <NavigationMenuLink asChild className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground">
         <Link href={item.url}>{item.title}</Link>
       </NavigationMenuLink>
     </NavigationMenuItem>
